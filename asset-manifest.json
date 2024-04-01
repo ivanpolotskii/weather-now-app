@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/weather-now-app/static/css/main.66b15a3e.css",
+    "main.js": "/weather-now-app/static/js/main.0b556eec.js",
+    "index.html": "/weather-now-app/index.html",
+    "main.66b15a3e.css.map": "/weather-now-app/static/css/main.66b15a3e.css.map",
+    "main.0b556eec.js.map": "/weather-now-app/static/js/main.0b556eec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66b15a3e.css",
+    "static/js/main.0b556eec.js"
+  ]
+}
