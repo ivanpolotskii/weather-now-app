@@ -19,7 +19,7 @@ export const weatherTypes = [
   },
   {
     type:"sun",
-    img:"./pictures/snow.png",
+    img:"./pictures/sun.png",
     icon:["🌙","☀️"],
     name:"Солнечно",
   },
