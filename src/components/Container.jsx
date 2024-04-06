@@ -9,6 +9,9 @@ import "../index.scss";
 
 const Container = observer(() => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [backgroundImage, setBackgroundImage] = useState(
+    "url(путь_к_вашему_изображению)"
+  );
 
   const { data, isError, error, isLoading } = useQuery({
     queryKey: ["weatherData"],
@@ -34,13 +37,21 @@ const Container = observer(() => {
     if (snowfall > 0) formStore.setWeather("snowfall");
     else if (rain > 0) formStore.setWeather("rain");
   };
-
+  const tryChangeBackground = (newImageUrl) => {
+    setBackgroundImage(`url(${newImageUrl})`);
+    document.body.style.backgroundImage = `url(${newImageUrl})`;
+  };
   useEffect(() => {
     if (data) {
+      
       const currentHourIndex = new Date().getHours();
       const { temperature_2m, cloud_cover, rain, snowfall } = data.hourly;
       formStore.setTemp(temperature_2m[currentHourIndex]);
       determineWeather(cloud_cover[currentHourIndex], rain[currentHourIndex], snowfall[currentHourIndex]);
+      tryChangeBackground(
+        weatherTypes.find((weatherType) => weatherType.type === formStore.weather)
+          ?.img
+      );
     }
     const interval = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(interval);
@@ -51,7 +62,7 @@ const Container = observer(() => {
   if (isError) return <div>Error fetching weather data: {error.message}</div>;
 
   return (
-    <div className="container" style={{ backgroundImage: `url(${weatherTypes.find(weatherType => weatherType.type === formStore.weather)?.img})` }}>
+    <div className="container">
       <div className="weather-icon">
         {
           weatherTypes.find(weatherType => weatherType.type === formStore.weather)?.icon[+(new Date().getHours() > 4)]
