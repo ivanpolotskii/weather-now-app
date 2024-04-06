@@ -1,31 +1,31 @@
 export const weatherTypes = [
   {
     type:"clouds",
-    img:"./pictures/clouds.png",
+    img:["./pictures/clouds.png","./pictures/clouds.png"],
     icon:["☁️","☁️"],
     name:"Облачно",
   },
   {
     type:"rain",
-    img:"./pictures/rain.png",
+    img:["./pictures/rain.png","./pictures/rain.png"],
     icon:["🌧️","🌧️"],
     name:"Дождь",
   },
   {
     type:"snow",
-    img:"./pictures/snow.png",
+    img:["./pictures/snow.png","./pictures/snow.png"],
     icon:["❄️","❄️"],
     name:"Снегопад",
   },
   {
     type:"sun",
-    img:"./pictures/sun.png",
+    img:["./pictures/moon.png","./pictures/sun.png"],
     icon:["🌙","☀️"],
-    name:"Солнечно",
+    name:"Ясно",
   },
   {
     type:"sunclouds",
-    img:"./pictures/sunclouds.png",
+    img:["./pictures/moonclouds.png","./pictures/sunclouds.png"],
     icon:["⛅","⛅"],
     name:"Переменная облачность",
   },

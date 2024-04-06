@@ -50,7 +50,7 @@ const Container = observer(() => {
       determineWeather(cloud_cover[currentHourIndex], rain[currentHourIndex], snowfall[currentHourIndex]);
       tryChangeBackground(
         weatherTypes.find((weatherType) => weatherType.type === formStore.weather)
-          ?.img
+          ?.img[+(new Date().getHours() > 4)]
       );
     }
     const interval = setInterval(() => setCurrentTime(new Date()), 1000);
